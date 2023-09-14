@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
-from .models import Post, PostCategory, Category
+from .models import Post, Category
 from .filters import PostFilter
 from .forms import PostForm
 
@@ -54,7 +54,7 @@ class PostSearch(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filterset'] = self.filterset
-        context['category'] = PostCategory.objects.all()
+        context['category'] = Category.objects.all()
         return context
 
 

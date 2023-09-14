@@ -1,6 +1,6 @@
 from django.forms import DateTimeInput
 from django_filters import FilterSet, DateTimeFilter, ModelChoiceFilter
-from .models import Post, PostCategory, Category
+from .models import Post, Category
 
 
 class PostFilter(FilterSet):
@@ -13,22 +13,12 @@ class PostFilter(FilterSet):
         ),
     )
 
-    #Category = ModelChoiceFilter(
-        #field_name='Category',
-        #queryset=Category.objects.all(),
-        #label='Category',
-        #empty_label='ALL'
-    #)
-
-    PostCategory = ModelChoiceFilter(
+    Category = ModelChoiceFilter(
         field_name='PostCategory',
-        queryset=PostCategory.objects.all(),
-        label='PostCategory',
+        queryset=Category.objects.all(),
+        label='Category',
         empty_label='ALL',
     )
-
-
-
 
     class Meta:
         model = Post
