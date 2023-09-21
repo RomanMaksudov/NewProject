@@ -158,14 +158,14 @@ SITE_URL = http://127.0.0.1:8000
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = "maksudov.rr@yandex.ru"
-EMAIL_HOST_PASSWORD = "yobrvsqbiexwaozx"
+EMAIL_HOST_USER = "example@yandex.ru"
+EMAIL_HOST_PASSWORD = "yobrvsqbiexxxxxx"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-DEFAULT_FROM_EMAIL = "maksudov.rr@yandex.ru"
+DEFAULT_FROM_EMAIL = "example@yandex.ru"
 
-SERVER_EMAIL = "maksudov.rr@yandex.ru"
+SERVER_EMAIL = "example@yandex.ru"
 MANAGERS = (
     ('Ivan', 'ivan@yandex.ru'),
     ('Petr', 'petr@yandex.ru'),
