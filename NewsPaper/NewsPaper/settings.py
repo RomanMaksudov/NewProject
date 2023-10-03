@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'django_filters',
     'django_apscheduler',
+    #'APScheduler',
+    'celery',
     'fpages',
+    'board',
     'newapp.apps.NewappConfig',
     'allauth',
     'allauth.account',
@@ -153,19 +157,19 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
 
-SITE_URL = http://127.0.0.1:8000
+#SITE_URL = http://127.0.0.1:8000
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = "maksudov.rr@yandex.ru"
-EMAIL_HOST_PASSWORD = "yobrvsqbiexwaozx"
+EMAIL_HOST_USER = "example@yandex.ru"
+EMAIL_HOST_PASSWORD = "yobrvsqbiexxxxx"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-DEFAULT_FROM_EMAIL = "maksudov.rr@yandex.ru"
+DEFAULT_FROM_EMAIL = "example@yandex.ru"
 
-SERVER_EMAIL = "maksudov.rr@yandex.ru"
+SERVER_EMAIL = "example@yandex.ru"
 MANAGERS = (
     ('Ivan', 'ivan@yandex.ru'),
     ('Petr', 'petr@yandex.ru'),
@@ -178,3 +182,10 @@ ADMINS = (
 APSCHEDULER_DATETIME_FORMAT = 'N j, Y, f:s, a'
 
 APSCHEDULER_RUN_NOW_TIMEOUT = 25
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
